@@ -7,7 +7,8 @@
     <dimen name="users_recycler_item_container_CornerRadius">8dp</dimen>
     <dimen name="users_recycler_item_container_padding">2dp</dimen>
 
-    <dimen name="users_recycler_item_avatar_imageview_dimens">72dp</dimen>
+    <dimen name="users_recycler_item_avatar_container_dimens">72dp</dimen>
+    <dimen name="users_recycler_item_avatar_container_CornerRadius">8dp</dimen>
 
     <dimen name="users_recycler_item_textview_container_padding">4dp</dimen>
     <dimen name="users_recycler_item_login_textview_textSize">24sp</dimen>
