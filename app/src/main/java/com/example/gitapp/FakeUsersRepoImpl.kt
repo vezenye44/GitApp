@@ -3,6 +3,7 @@ package com.example.gitapp
 import android.os.Handler
 import android.os.Looper
 
+private const val DELAY_MILLIS = 3_000L
 class FakeUsersRepoImpl : UsersRepo {
 
     private val users = listOf(
@@ -16,9 +17,5 @@ class FakeUsersRepoImpl : UsersRepo {
         callbackError: ((Throwable) -> Unit)?
     ) {
         Handler(Looper.getMainLooper()).postDelayed({callbackSuccess(users)}, DELAY_MILLIS)
-    }
-
-    companion object {
-        private const val DELAY_MILLIS = 2_000L
     }
 }
