@@ -3,7 +3,7 @@ package com.example.gitapp.ui.users
 import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gitapp.domain.UserDTO
+import com.example.gitapp.domain.dto.UserDTO
 
 class UsersAdapter : RecyclerView.Adapter<UserViewHolder>() {
 

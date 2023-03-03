@@ -1,4 +1,6 @@
-package com.example.gitapp.domain
+package com.example.gitapp.domain.repo
+
+import com.example.gitapp.domain.dto.UserDTO
 
 interface UsersRepo {
     //Create

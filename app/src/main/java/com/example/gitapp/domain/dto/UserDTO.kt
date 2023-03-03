@@ -1,4 +1,4 @@
-package com.example.gitapp.domain
+package com.example.gitapp.domain.dto
 
 data class UserDTO(
     val login: String,
