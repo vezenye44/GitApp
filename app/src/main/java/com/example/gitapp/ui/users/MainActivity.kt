@@ -1,10 +1,12 @@
-package com.example.gitapp
+package com.example.gitapp.ui.users
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.gitapp.domain.UsersRepo
+import com.example.gitapp.app
 import com.example.gitapp.databinding.ActivityMainBinding
 
 

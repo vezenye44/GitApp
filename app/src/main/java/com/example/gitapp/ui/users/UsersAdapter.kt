@@ -1,8 +1,9 @@
-package com.example.gitapp
+package com.example.gitapp.ui.users
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gitapp.domain.UserDTO
 
 class UsersAdapter : RecyclerView.Adapter<UserViewHolder>() {
 

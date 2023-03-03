@@ -1,4 +1,4 @@
-package com.example.gitapp
+package com.example.gitapp.domain
 
 interface UsersRepo {
     //Create

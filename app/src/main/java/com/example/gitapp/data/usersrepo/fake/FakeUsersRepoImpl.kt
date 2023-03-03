@@ -1,7 +1,9 @@
-package com.example.gitapp
+package com.example.gitapp.data.usersrepo.fake
 
 import android.os.Handler
 import android.os.Looper
+import com.example.gitapp.domain.UserDTO
+import com.example.gitapp.domain.UsersRepo
 
 private const val DELAY_MILLIS = 3_000L
 class FakeUsersRepoImpl : UsersRepo {
