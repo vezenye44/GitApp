@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gitapp.domain.repo.UsersRepo
 import com.example.gitapp.app
 import com.example.gitapp.databinding.ActivityMainBinding
+import com.example.gitapp.domain.dto.UserDTO
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), UsersContract.View {
 
     private lateinit var binding: ActivityMainBinding
     private val adapter = UsersAdapter()
-    private val usersRepo: UsersRepo by lazy { app().usersRepo }
+    private val presenter: UsersContract.Presenter by lazy { UsersPresenter(app().usersRepo) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,35 +23,34 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initView()
+
+        presenter.attach(this)
+    }
+
+    override fun onDestroy() {
+        presenter.detach()
+        super.onDestroy()
     }
 
     private fun initView() {
         binding.activityMainRefreshFAB.setOnClickListener {
-            showLoadingProcess(true)
-            loadData()
+            presenter.onRefresh()
         }
 
         initRecyclerView()
     }
 
-    private fun loadData() {
-        usersRepo.getUsers(
-            callbackSuccess = {
-                showLoadingProcess(false)
-                adapter.setData(it)
-            },
-            callbackError = {
-                showLoadingProcess(false)
-                showError(it)
-            }
-        )
+
+
+    override fun showData(users: List<UserDTO>) {
+        adapter.setData(users)
     }
 
-    private fun showError(it: Throwable) {
+    override fun showError(it: Throwable) {
         Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
     }
 
-    private fun showLoadingProcess(inLoadingProcess: Boolean) {
+    override fun showLoadingProcess(inLoadingProcess: Boolean) {
         binding.activityMainProgressBar.isVisible = inLoadingProcess
         binding.activityMainUsersRecyclerView.isVisible = !inLoadingProcess
 
@@ -59,8 +59,6 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         binding.activityMainUsersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.activityMainUsersRecyclerView.adapter = adapter
-        showLoadingProcess(true)
-        loadData()
     }
 
 
