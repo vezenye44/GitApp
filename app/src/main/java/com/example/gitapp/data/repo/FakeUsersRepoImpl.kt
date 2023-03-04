@@ -5,7 +5,7 @@ import android.os.Looper
 import com.example.gitapp.domain.dto.UserDTO
 import com.example.gitapp.domain.repo.UsersRepo
 
-private const val DELAY_MILLIS = 3_000L
+private const val DELAY_MILLIS = 5_000L
 
 class FakeUsersRepoImpl : UsersRepo {
 
@@ -19,6 +19,9 @@ class FakeUsersRepoImpl : UsersRepo {
         callbackSuccess: (List<UserDTO>) -> Unit,
         callbackError: ((Throwable) -> Unit)?
     ) {
-        Handler(Looper.getMainLooper()).postDelayed({ callbackSuccess(users) }, DELAY_MILLIS)
+        Handler(Looper.getMainLooper()).postDelayed({
+            //callbackError?.invoke(Throwable("ERROR"))
+            callbackSuccess(users)
+        }, DELAY_MILLIS)
     }
 }
