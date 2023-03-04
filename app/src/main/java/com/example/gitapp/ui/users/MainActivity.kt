@@ -1,5 +1,6 @@
 package com.example.gitapp.ui.users
 
+import android.icu.lang.UCharacter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity(), UsersContract.View {
 
     private lateinit var binding: ActivityMainBinding
     private val adapter = UsersAdapter()
-    private val presenter: UsersContract.Presenter by lazy { UsersPresenter(app().usersRepo) }
+    private lateinit var presenter: UsersContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,13 @@ class MainActivity : AppCompatActivity(), UsersContract.View {
 
         initView()
 
+        presenter = extractPresenter()
         presenter.attach(this)
+    }
+
+    private fun extractPresenter(): UsersContract.Presenter {
+        return lastCustomNonConfigurationInstance as? UsersContract.Presenter
+            ?: UsersPresenter(app().usersRepo)
     }
 
     override fun onDestroy() {
@@ -40,7 +47,9 @@ class MainActivity : AppCompatActivity(), UsersContract.View {
         initRecyclerView()
     }
 
-
+    override fun onRetainCustomNonConfigurationInstance(): UsersContract.Presenter {
+        return presenter
+    }
 
     override fun showData(users: List<UserDTO>) {
         adapter.setData(users)
