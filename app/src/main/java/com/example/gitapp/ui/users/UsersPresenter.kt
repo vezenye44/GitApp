@@ -2,6 +2,7 @@ package com.example.gitapp.ui.users
 
 import com.example.gitapp.domain.dto.UserDTO
 import com.example.gitapp.domain.repo.UsersRepo
+import java.text.FieldPosition
 
 class UsersPresenter(
     private val usersRepo: UsersRepo
@@ -27,6 +28,10 @@ class UsersPresenter(
 
     override fun onRefresh() {
         loadData()
+    }
+
+    override fun onItemClick(itemPosition: Int) {
+        view?.showToast("itemClickSuccess by position: $itemPosition")
     }
 
     private fun saveViewState(

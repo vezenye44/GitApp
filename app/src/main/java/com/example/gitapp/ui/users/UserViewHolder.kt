@@ -8,7 +8,7 @@ import com.example.gitapp.R
 import com.example.gitapp.domain.dto.UserDTO
 import com.example.gitapp.databinding.UsersRecyclerViewItemBinding
 
-class UserViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
+class UserViewHolder(parent: ViewGroup,private val clickListener: UserClickListener) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context).inflate(R.layout.users_recycler_view_item, parent, false)
 ) {
 
@@ -22,6 +22,10 @@ class UserViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         }
         binding.usersRecyclerItemLoginTextview.text = userDTO.login
         binding.usersRecyclerItemIdTextview.text = userDTO.id.toString()
+
+        binding.usersRecyclerItemContainer.setOnClickListener {
+            clickListener.onItemClick(layoutPosition)
+        }
     }
 
 }

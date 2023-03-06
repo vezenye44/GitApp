@@ -10,12 +10,15 @@ import com.example.gitapp.domain.repo.UsersRepo
 import com.example.gitapp.app
 import com.example.gitapp.databinding.ActivityMainBinding
 import com.example.gitapp.domain.dto.UserDTO
+import java.text.FieldPosition
 
 
 class MainActivity : AppCompatActivity(), UsersContract.View {
 
     private lateinit var binding: ActivityMainBinding
-    private val adapter = UsersAdapter()
+    private val adapter: UsersAdapter by lazy { UsersAdapter(UserClickListener {
+        presenter.onItemClick(it)
+    }) }
     private lateinit var presenter: UsersContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,10 +68,17 @@ class MainActivity : AppCompatActivity(), UsersContract.View {
 
     }
 
+    override fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
     private fun initRecyclerView() {
         binding.activityMainUsersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.activityMainUsersRecyclerView.adapter = adapter
     }
 
+}
 
+fun interface UserClickListener {
+    fun onItemClick(position: Int)
 }
