@@ -8,6 +8,7 @@ interface UserProfileContract {
         fun showError(throwable: Throwable)
         fun showLoadingProcess(inLoadingProcess: Boolean)
     }
+
     interface Presenter {
         fun attach(view: View)
         fun detach()

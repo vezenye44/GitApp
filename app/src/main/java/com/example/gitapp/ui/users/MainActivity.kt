@@ -1,26 +1,25 @@
 package com.example.gitapp.ui.users
 
 import android.content.Intent
-import android.icu.lang.UCharacter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.gitapp.domain.repo.UsersRepo
 import com.example.gitapp.app
 import com.example.gitapp.databinding.ActivityMainBinding
 import com.example.gitapp.domain.dto.UserDTO
 import com.example.gitapp.ui.user.UserProfileActivity
-import java.text.FieldPosition
 
 
 class MainActivity : AppCompatActivity(), UsersContract.View {
 
     private lateinit var binding: ActivityMainBinding
-    private val adapter: UsersAdapter by lazy { UsersAdapter(UserClickListener {
-        presenter.onItemClick(it)
-    }) }
+    private val adapter: UsersAdapter by lazy {
+        UsersAdapter(UserClickListener {
+            presenter.onItemClick(it)
+        })
+    }
     private lateinit var presenter: UsersContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,7 +74,7 @@ class MainActivity : AppCompatActivity(), UsersContract.View {
     }
 
     override fun openUserProfile(userProfileUrl: String) {
-        val intent = Intent(this , UserProfileActivity::class.java)
+        val intent = Intent(this, UserProfileActivity::class.java)
         intent.putExtra(USER_PROFILE_EXTRA, userProfileUrl)
         startActivity(intent)
     }

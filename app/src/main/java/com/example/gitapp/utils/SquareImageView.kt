@@ -12,7 +12,8 @@ class SquareImageView @JvmOverloads constructor(
     AppCompatImageView(context, attrs, defStyleAttr) {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val maxSize = if (widthMeasureSpec >= heightMeasureSpec) widthMeasureSpec else heightMeasureSpec
+        val maxSize =
+            if (widthMeasureSpec >= heightMeasureSpec) widthMeasureSpec else heightMeasureSpec
         super.onMeasure(maxSize, maxSize)
     }
 }

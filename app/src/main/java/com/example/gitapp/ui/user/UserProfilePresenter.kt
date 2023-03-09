@@ -39,12 +39,12 @@ class UserProfilePresenter(
             callbackSuccess = {
                 view?.showLoadingProcess(false)
                 view?.showData(it)
-                saveViewState(false, user=it)
+                saveViewState(false, user = it)
             },
             callbackError = {
                 view?.showLoadingProcess(false)
                 view?.showError(it)
-                saveViewState(false, throwable=it)
+                saveViewState(false, throwable = it)
             }
         )
     }

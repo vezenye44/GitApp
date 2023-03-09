@@ -1,7 +1,6 @@
 package com.example.gitapp.ui.users
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load

@@ -16,7 +16,7 @@ class UsersPresenter(
         view.showLoadingProcess(isLoadingProcess)
         if (users != null) {
             view.showData(users!!)
-        } else if (throwable == null){
+        } else if (throwable == null) {
             loadData()
         }
     }
@@ -51,12 +51,12 @@ class UsersPresenter(
         usersRepo.getUsers(
             callbackSuccess = {
                 view?.showLoadingProcess(false)
-                saveViewState(false, users=it)
+                saveViewState(false, users = it)
                 view?.showData(it)
             },
             callbackError = {
                 view?.showLoadingProcess(false)
-                saveViewState(false, throwable=it)
+                saveViewState(false, throwable = it)
                 view?.showError(it)
             }
         )

@@ -34,7 +34,7 @@ class FakeUserProfileRepoImpl(private val userLogin: String) : UserProfileRepo {
         callbackError: ((Throwable) -> Unit)?
     ) {
         Handler(Looper.getMainLooper()).postDelayed({
-            when(userLogin) {
+            when (userLogin) {
                 users[0].login -> callbackSuccess(users[0])
                 users[1].login -> callbackSuccess(users[1])
                 users[2].login -> callbackSuccess(users[2])
