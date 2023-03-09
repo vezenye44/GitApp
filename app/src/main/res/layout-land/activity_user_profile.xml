@@ -14,11 +14,11 @@
 
         <com.example.gitapp.utils.SquareImageView
             android:id="@+id/activity_user_profile_avatar_imageview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_user_profile_name_textview_margin_start"
-            android:layout_marginHorizontal="@dimen/activity_user_profile_avatar_imageview_horizontal_margins"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/activity_user_profile_name_textview_margin_start"
+            android:layout_marginVertical="@dimen/activity_user_profile_avatar_imageview_vertical_margins"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_image_placeholder" />
@@ -27,12 +27,12 @@
             android:id="@+id/activity_user_profile_name_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
+            android:layout_marginStart="@dimen/activity_user_profile_name_textview_margin_start"
+            android:layout_marginTop="@dimen/activity_user_profile_name_textview_margin_top"
             android:textSize="@dimen/activity_user_profile_name_textview_textsize"
             android:textStyle="bold"
-            android:layout_marginStart="@dimen/activity_user_profile_name_textview_margin_start"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_avatar_imageview"
+            app:layout_constraintStart_toEndOf="@+id/activity_user_profile_avatar_imageview"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Tom Preston-Werner" />
 
         <androidx.appcompat.widget.AppCompatTextView
