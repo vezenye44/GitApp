@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- activity_user_profile / -->
+    <dimen name="activity_user_profile_avatar_imageview_vertical_margins" tools:ignore="MissingDefaultResource">42dp</dimen>
+    <dimen name="activity_user_profile_name_textview_margin_top" tools:ignore="MissingDefaultResource">32dp</dimen>
+    <!-- / activity_user_profile -->
+</resources>
