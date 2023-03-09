@@ -12,7 +12,7 @@
         android:background="#7C95A8"
         tools:context=".ui.user.UserProfileActivity">
 
-        <com.example.gitapp.utils.SquareImageView
+        <com.example.gitapp.ui.custom.view.SquareImageView
             android:id="@+id/activity_user_profile_avatar_imageview"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

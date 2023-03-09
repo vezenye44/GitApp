@@ -1,4 +1,4 @@
-package com.example.gitapp.utils
+package com.example.gitapp.ui.custom.view
 
 import android.content.Context
 import android.util.AttributeSet
