@@ -22,6 +22,7 @@
     <dimen name="activity_user_profile_textviews_vertical_paddings">4dp</dimen>
 
     <dimen name="activity_user_profile_name_textview_textsize">32sp</dimen>
+    <dimen name="activity_user_profile_name_textview_margin_start">32dp</dimen>
 
     <dimen name="activity_user_profile_login_textview_textsize">24sp</dimen>
 

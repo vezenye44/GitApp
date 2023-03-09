@@ -3,10 +3,12 @@ package com.example.gitapp.ui.user
 import android.os.Bundle
 import android.os.Message
 import android.view.View
+import android.view.animation.Transformation
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.example.gitapp.R
 import com.example.gitapp.data.repo.FakeUserProfileRepoImpl
 import com.example.gitapp.data.repo.RetrofitUserProfileRepoImpl
@@ -53,6 +55,7 @@ class UserProfileActivity : AppCompatActivity() {
                 crossfade(true)
                 placeholder(R.drawable.ic_image_placeholder)
                 error(R.drawable.ic_image_error)
+                transformations(CircleCropTransformation())
             }
             activityUserProfileLoginTextview.text = data.login
             activityUserProfileNameTextview.text = data.name

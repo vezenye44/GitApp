@@ -16,6 +16,7 @@
             android:id="@+id/activity_user_profile_avatar_imageview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
             android:layout_marginHorizontal="@dimen/activity_user_profile_avatar_imageview_horizontal_margins"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
             android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
             android:textSize="@dimen/activity_user_profile_name_textview_textsize"
             android:textStyle="bold"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="@dimen/activity_user_profile_name_textview_margin_start"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_avatar_imageview"
             tools:text="Tom Preston-Werner" />
