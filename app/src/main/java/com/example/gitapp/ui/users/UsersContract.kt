@@ -8,7 +8,6 @@ interface UsersContract {
         fun showData(users: List<UserDTO>)
         fun showError(throwable: Throwable)
         fun showLoadingProcess(inLoadingProcess: Boolean)
-
         fun showToast(message: String)
         fun openUserProfile(userProfileUrl: String)
     }
@@ -16,9 +15,7 @@ interface UsersContract {
     interface Presenter {
         fun attach(view: View)
         fun detach()
-
         fun onRefresh()
-
         fun onItemClick(itemPosition: Int)
     }
 }
