@@ -1,5 +1,6 @@
 package com.example.gitapp.ui.users
 
+import android.content.Intent
 import android.icu.lang.UCharacter
 import android.os.Bundle
 import android.widget.Toast
@@ -10,6 +11,7 @@ import com.example.gitapp.domain.repo.UsersRepo
 import com.example.gitapp.app
 import com.example.gitapp.databinding.ActivityMainBinding
 import com.example.gitapp.domain.dto.UserDTO
+import com.example.gitapp.ui.user.UserProfileActivity
 import java.text.FieldPosition
 
 
@@ -72,11 +74,20 @@ class MainActivity : AppCompatActivity(), UsersContract.View {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
+    override fun openUserProfile(userProfileUrl: String) {
+        val intent = Intent(this , UserProfileActivity::class.java)
+        intent.putExtra(USER_PROFILE_EXTRA, userProfileUrl)
+        startActivity(intent)
+    }
+
     private fun initRecyclerView() {
         binding.activityMainUsersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.activityMainUsersRecyclerView.adapter = adapter
     }
 
+    companion object {
+        const val USER_PROFILE_EXTRA = "user_profile_extra"
+    }
 }
 
 fun interface UserClickListener {

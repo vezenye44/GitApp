@@ -1,81 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_user_profile_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#CDADAD"
-    tools:context=".ui.user.UserProfileActivity">
+    android:layout_height="match_parent">
 
-    <com.example.gitapp.utils.SquareImageView
-        android:id="@+id/activity_user_profile_avatar_imageview"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_user_profile_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_image_placeholder"
-        android:layout_marginHorizontal="@dimen/activity_user_profile_avatar_imageview_horizontal_margins"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:background="#7C95A8"
+        tools:context=".ui.user.UserProfileActivity">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_user_profile_name_textview"
+        <com.example.gitapp.utils.SquareImageView
+            android:id="@+id/activity_user_profile_avatar_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_user_profile_avatar_imageview_horizontal_margins"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_image_placeholder" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_user_profile_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
+            android:textSize="@dimen/activity_user_profile_name_textview_textsize"
+            android:textStyle="bold"
+            android:layout_marginStart="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_avatar_imageview"
+            tools:text="Tom Preston-Werner" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_user_profile_login_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
+            android:textSize="@dimen/activity_user_profile_login_textview_textsize"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/activity_user_profile_name_textview"
+            app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_name_textview"
+            tools:text="mojombo" />
+
+        <Button
+            android:id="@+id/activity_user_profile_company_textview"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
+            android:textSize="@dimen/activity_user_profile_buttons_textsize"
+            app:icon="@drawable/ic_company"
+            app:layout_constraintStart_toStartOf="@+id/activity_user_profile_name_textview"
+            app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_login_textview"
+            tools:text="chatterbugapp, redwoodjs, preston-werner-ventures" />
+
+        <Button
+            android:id="@+id/activity_user_profile_blog_textview"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
+            android:textSize="@dimen/activity_user_profile_buttons_textsize"
+            app:icon="@drawable/ic_blog"
+            app:layout_constraintStart_toStartOf="@+id/activity_user_profile_name_textview"
+            app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_company_textview"
+            tools:text="http://tom.preston-werner.com" />
+
+        <Button
+            android:id="@+id/activity_user_profile_location_textview"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
+            android:textSize="@dimen/activity_user_profile_buttons_textsize"
+            app:icon="@drawable/ic_location"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="@+id/activity_user_profile_name_textview"
+            app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_blog_textview"
+            tools:text="San Francisco" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/activity_user_profile_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
-        android:textSize="@dimen/activity_user_profile_name_textview_textsize"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_avatar_imageview"
-        tools:text="Tom Preston-Werner" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_user_profile_login_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
-        android:textSize="@dimen/activity_user_profile_login_textview_textsize"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/activity_user_profile_name_textview"
-        app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_name_textview"
-        tools:text="mojombo" />
-
-    <Button
-        android:id="@+id/activity_user_profile_company_textview"
-        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
-        android:textSize="@dimen/activity_user_profile_buttons_textsize"
-        app:icon="@drawable/ic_company"
-        app:layout_constraintStart_toStartOf="@+id/activity_user_profile_name_textview"
-        app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_login_textview"
-        tools:text="chatterbugapp, redwoodjs, preston-werner-ventures" />
-
-    <Button
-        android:id="@+id/activity_user_profile_blog_textview"
-        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
-        android:textSize="@dimen/activity_user_profile_buttons_textsize"
-        app:icon="@drawable/ic_blog"
-        app:layout_constraintStart_toStartOf="@+id/activity_user_profile_name_textview"
-        app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_company_textview"
-        tools:text="http://tom.preston-werner.com" />
-
-    <Button
-        android:id="@+id/activity_user_profile_location_textview"
-        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/activity_user_profile_textviews_vertical_paddings"
-        android:textSize="@dimen/activity_user_profile_buttons_textsize"
-        app:icon="@drawable/ic_location"
-        app:layout_constraintStart_toStartOf="@+id/activity_user_profile_name_textview"
-        app:layout_constraintTop_toBottomOf="@+id/activity_user_profile_blog_textview"
-        tools:text="San Francisco" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="center"
+        />
+</FrameLayout>

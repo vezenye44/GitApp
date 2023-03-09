@@ -10,6 +10,7 @@ interface UsersContract {
         fun showLoadingProcess(inLoadingProcess: Boolean)
 
         fun showToast(message: String)
+        fun openUserProfile(userProfileUrl: String)
     }
 
     interface Presenter {
