@@ -11,26 +11,31 @@ import com.example.gitapp.R
 import com.example.gitapp.data.repo.FakeUserProfileRepoImpl
 import com.example.gitapp.databinding.ActivityUserProfileBinding
 import com.example.gitapp.domain.dto.UserProfileDTO
-import com.example.gitapp.domain.dto.UserProfilePresenter
 import com.example.gitapp.ui.users.MainActivity
 
 class UserProfileActivity : AppCompatActivity(), UserProfileContract.View {
     private lateinit var binding: ActivityUserProfileBinding
-    private val presenter: UserProfileContract.Presenter by lazy {
-        val userLogin = intent.getSerializableExtra(
-            MainActivity.USER_PROFILE_EXTRA
-        ).toString()
-        UserProfilePresenter(
-            FakeUserProfileRepoImpl(userLogin)
-        )
-    }
+    private lateinit var presenter: UserProfileContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        presenter = extractPresenter()
         presenter.attach(this)
+    }
+
+    private fun extractPresenter(): UserProfileContract.Presenter {
+        val userLogin = intent.getSerializableExtra(
+            MainActivity.USER_PROFILE_EXTRA
+        ).toString()
+        return lastCustomNonConfigurationInstance as? UserProfileContract.Presenter
+            ?: UserProfilePresenter(FakeUserProfileRepoImpl(userLogin))
+    }
+
+    override fun onRetainCustomNonConfigurationInstance(): UserProfileContract.Presenter {
+        return presenter
     }
 
     override fun onDestroy() {
