@@ -1,21 +1,16 @@
 package com.example.gitapp.ui.users
 
+import androidx.lifecycle.LiveData
 import com.example.gitapp.domain.dto.UserDTO
 
 interface UsersContract {
 
-    interface View {
-        fun showData(users: List<UserDTO>)
-        fun showError(throwable: Throwable)
-        fun showLoadingProcess(inLoadingProcess: Boolean)
-        fun showToast(message: String)
-        fun openUserProfile(userProfileUrl: String)
-    }
+    interface ViewModel {
+        val usersLiveData: LiveData<List<UserDTO>>
+        val errorLiveData: LiveData<Throwable>
+        val loadingLiveData: LiveData<Boolean>
 
-    interface Presenter {
-        fun attach(view: View)
-        fun detach()
+        fun attach()
         fun onRefresh()
-        fun onItemClick(itemPosition: Int)
     }
 }

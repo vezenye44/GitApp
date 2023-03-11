@@ -11,7 +11,7 @@ import com.example.gitapp.R
 import com.example.gitapp.data.repo.FakeUserProfileRepoImpl
 import com.example.gitapp.databinding.ActivityUserProfileBinding
 import com.example.gitapp.domain.dto.UserProfileDTO
-import com.example.gitapp.ui.users.MainActivity
+import com.example.gitapp.ui.users.UsersActivity
 
 class UserProfileActivity : AppCompatActivity(), UserProfileContract.View {
     private lateinit var binding: ActivityUserProfileBinding
@@ -28,7 +28,7 @@ class UserProfileActivity : AppCompatActivity(), UserProfileContract.View {
 
     private fun extractPresenter(): UserProfileContract.Presenter {
         val userLogin = intent.getSerializableExtra(
-            MainActivity.USER_PROFILE_EXTRA
+            UsersActivity.USER_PROFILE_EXTRA
         ).toString()
         return lastCustomNonConfigurationInstance as? UserProfileContract.Presenter
             ?: UserProfilePresenter(FakeUserProfileRepoImpl(userLogin))
