@@ -20,7 +20,7 @@ class FakeUsersRepoImpl : UsersRepo {
         callbackError: ((Throwable) -> Unit)?
     ) {
         Handler(Looper.getMainLooper()).postDelayed({
-            //callbackError?.invoke(Throwable("ERROR"))
+            callbackError?.invoke(Throwable("ERROR"))
             callbackSuccess(users)
         }, DELAY_MILLIS)
     }

@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.gitapp.domain.dto.UserDTO
 import com.example.gitapp.domain.repo.UsersRepo
+import com.example.gitapp.ui.custom.livedata.SingleEventLiveData
 
 class UsersViewModel(
     private val usersRepo: UsersRepo
 ) : UsersContract.ViewModel {
 
     override val usersLiveData: LiveData<List<UserDTO>> = MutableLiveData()
-    override val errorLiveData: LiveData<Throwable> = MutableLiveData()
+    override val errorLiveData: LiveData<Throwable> = SingleEventLiveData()
     override val loadingLiveData: LiveData<Boolean> = MutableLiveData()
 
     private var isFirstAttach: Boolean = true
