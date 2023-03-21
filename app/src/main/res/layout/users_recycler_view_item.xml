@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/users_recycler_item_container"
+    app:cardCornerRadius="@dimen/users_recycler_item_container_CornerRadius"
+    android:layout_margin="@dimen/users_recycler_item_container_padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/users_recycler_item_avatar_container_dimens"
+            app:cardCornerRadius="@dimen/users_recycler_item_container_CornerRadius"
+            android:layout_height="@dimen/users_recycler_item_avatar_container_dimens"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/users_recycler_item_avatar_imageview"
+                android:src="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/users_recycler_item_textview_container_padding"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/users_recycler_item_login_textview"
+                android:textSize="@dimen/users_recycler_item_login_textview_textSize"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/users_recycler_item_id_textview"
+                android:textSize="@dimen/users_recycler_item_id_textview_textSize"
+                android:textStyle="normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
