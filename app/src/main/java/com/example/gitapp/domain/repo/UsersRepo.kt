@@ -9,7 +9,7 @@ interface UsersRepo {
     //Delete
 
     fun getUsers(
-        callbackSuccess : (List<UserDTO>) -> Unit,
-        callbackError : ((Throwable) -> Unit)? = null
+        callbackSuccess: (List<UserDTO>) -> Unit,
+        callbackError: ((Throwable) -> Unit)? = null
     )
 }

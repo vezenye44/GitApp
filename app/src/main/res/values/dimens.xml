@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- activity_main -->
+    <!-- activity_main / -->
     <dimen name="activity_main_refresh_FAB_margin">16dp</dimen>
+    <!-- / activity_main -->
 
-    <!-- users_recycler_item -->
+    <!-- users_recycler_item / -->
     <dimen name="users_recycler_item_container_CornerRadius">8dp</dimen>
     <dimen name="users_recycler_item_container_padding">2dp</dimen>
 
@@ -13,4 +14,20 @@
     <dimen name="users_recycler_item_textview_container_padding">4dp</dimen>
     <dimen name="users_recycler_item_login_textview_textSize">24sp</dimen>
     <dimen name="users_recycler_item_id_textview_textSize">16sp</dimen>
+    <!-- / users_recycler_item -->
+
+    <!-- activity_user_profile / -->
+    <dimen name="activity_user_profile_avatar_imageview_horizontal_margins">42dp</dimen>
+
+    <dimen name="activity_user_profile_textviews_vertical_paddings">4dp</dimen>
+
+    <dimen name="activity_user_profile_name_textview_textsize">32sp</dimen>
+    <dimen name="activity_user_profile_name_textview_margin_start">32dp</dimen>
+
+    <dimen name="activity_user_profile_login_textview_textsize">24sp</dimen>
+
+    <dimen name="activity_user_profile_buttons_textsize">16sp</dimen>
+    <!-- / activity_user_profile -->
+
+
 </resources>
