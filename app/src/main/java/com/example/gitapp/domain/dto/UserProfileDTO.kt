@@ -7,8 +7,8 @@ data class UserProfileDTO(
     val id: Int,
     @SerializedName("avatar_url")
     val avatarUrl: String,
-    val name: String?,
-    val blog: String?,
-    val company: String?,
-    val location: String?
+    val name: String? = null,
+    val blog: String? = null,
+    val company: String? = null,
+    val location: String? = null
 )

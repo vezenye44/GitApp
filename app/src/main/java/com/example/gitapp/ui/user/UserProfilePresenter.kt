@@ -2,16 +2,17 @@ package com.example.gitapp.ui.user
 
 import com.example.gitapp.domain.dto.UserProfileDTO
 import com.example.gitapp.domain.repo.UserProfileRepo
+import com.example.gitapp.ui.user.UserProfileContract.View
 
 class UserProfilePresenter(
     private val userProfileRepo: UserProfileRepo
 ) : UserProfileContract.Presenter {
-    private var view: UserProfileContract.View? = null
+    private var view: View? = null
     private var user: UserProfileDTO? = null
     private var isLoadingProcess = false
     private var throwable: Throwable? = null
 
-    override fun attach(view: UserProfileContract.View) {
+    override fun attach(view: View) {
         this.view = view
 
         view.showLoadingProcess(isLoadingProcess)
@@ -36,17 +37,21 @@ class UserProfilePresenter(
         view?.showLoadingProcess(true)
         saveViewState(true)
         userProfileRepo.getUserProfile(
-            callbackSuccess = {
-                view?.showLoadingProcess(false)
-                view?.showData(it)
-                saveViewState(false, user = it)
-            },
-            callbackError = {
-                view?.showLoadingProcess(false)
-                view?.showError(it)
-                saveViewState(false, throwable = it)
-            }
+            ::onSuccessData,
+            ::onErrorData
         )
+    }
+
+    private fun onSuccessData(profileDTO: UserProfileDTO) {
+        view?.showLoadingProcess(false)
+        view?.showData(profileDTO)
+        saveViewState(false, user = profileDTO)
+    }
+
+    private fun onErrorData(throwable: Throwable) {
+        view?.showLoadingProcess(false)
+        view?.showError(throwable)
+        saveViewState(false, throwable = throwable)
     }
 
     override fun detach() {
